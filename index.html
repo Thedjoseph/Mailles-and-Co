@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Mailles &amp; Co — Créations fait main</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap');
+:root {
+  --cream:#f7f1e8; --paper:#fbf8f2; --brown:#6f3c20; --ink:#25211e;
+  --line:#dfd3c5; --muted:#776e67;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans",Arial,sans-serif}
+h1,h2,h3,p{margin:0}
+h1,h2,h3,.logo,.script{font-family:"Bitter",Georgia,serif;font-weight:800;letter-spacing:-.01em}
+a{color:inherit;text-decoration:none}
+.container{width:min(1180px,calc(100% - 44px));margin:auto}
+header{position:absolute;z-index:10;top:0;left:0;right:0;color:#fff;padding:18px 0}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{font-size:26px;font-style:normal;font-weight:900;white-space:nowrap;letter-spacing:-.02em}
+.logo small{font-size:12px}
+.links{display:flex;gap:28px;font-size:11px;align-items:center}
+.actions{display:flex;gap:10px;align-items:center;font-size:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 18px;border-radius:22px;background:var(--brown);color:#fff;font-size:11px}
+.btn.outline{background:transparent;border:1px solid rgba(255,255,255,.7)}
+
+.hero{min-height:560px;background-image:linear-gradient(90deg,rgba(43,24,13,.78),rgba(43,24,13,.16)),linear-gradient(135deg,#5a3a28,#8b6246);background-size:cover;background-position:center;display:flex;align-items:center;color:white}
+.hero-inner{width:min(1180px,calc(100% - 44px));margin:auto;padding-top:60px}
+.eyebrow{font-size:10px;letter-spacing:2px;text-transform:uppercase;opacity:.78;margin-bottom:16px}
+.hero h1{font-size:clamp(48px,6vw,78px);line-height:.89;max-width:640px;margin-bottom:20px;font-weight:900}
+.hero p{font-size:13px;line-height:1.6;max-width:420px;color:#f4eee8;margin-bottom:22px}
+.hero-buttons{display:flex;gap:10px;margin-bottom:26px}
+.social-proof{display:flex;align-items:center;gap:10px;font-size:10px}
+.faces{display:flex}
+.face{width:30px;height:30px;border-radius:50%;border:2px solid #fff;margin-right:-7px;background:#b99b82}
+
+.trust{background:#f3eee6;border-bottom:1px solid #e5ddd3}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);padding:18px 0}
+.trust-item{display:flex;gap:10px;justify-content:center;align-items:center;border-right:1px solid #ded5ca;font-size:10px}
+.trust-item:last-child{border:0}
+.icon{font-size:22px}
+
+.section{padding:52px 0}
+.split{display:grid;grid-template-columns:1fr 1.7fr;gap:24px;align-items:center}
+.section h2{font-size:42px;line-height:.98}
+.section p{color:var(--muted);font-size:12px;line-height:1.65;margin:15px 0 18px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.card{position:relative;overflow:hidden;border-radius:9px;min-height:240px;background:#ddd}
+.card img{width:100%;height:100%;object-fit:cover;display:block}
+.card .overlay{position:absolute;left:0;right:0;bottom:0;padding:18px 13px;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.7))}
+.card h3{font-size:20px}
+.card small{font-size:9px;opacity:.9}
+
+.about{background:#f5eee5}
+.about-grid{display:grid;grid-template-columns:1fr 1fr}
+.about-photo{background:linear-gradient(135deg,#5a3a28,#8b6246) center/cover;min-height:330px}
+.about-copy{padding:52px 9%;position:relative}
+.about-copy:after{content:"";position:absolute;right:18px;top:15px;width:90px;height:120px;border-top:1px solid #bfa993;border-radius:50%;transform:rotate(35deg);opacity:.55}
+
+.products-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:20px}
+.arrows{display:flex;gap:8px}
+.arrow{border:1px solid var(--line);width:32px;height:32px;border-radius:50%;display:grid;place-items:center}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.product img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:8px}
+.product-name{font-family:"Bitter",Georgia,serif;font-weight:800;font-size:19px;margin-top:7px}
+.meta{font-size:9px;color:var(--muted)}
+.price{font-size:10px;font-weight:600;margin-top:4px}
+.bag{float:right;background:var(--brown);color:#fff;width:28px;height:28px;border-radius:6px;display:grid;place-items:center;margin-top:-26px}
+
+.matter{min-height:290px;background-image:linear-gradient(90deg,rgba(46,22,10,.84),rgba(46,22,10,.36)),linear-gradient(135deg,#5a3a28,#8b6246);background-size:cover;background-position:center;color:#fff}
+.matter-grid{display:grid;grid-template-columns:1.2fr 1fr;align-items:center;min-height:290px}
+.matter h2{font-size:44px;max-width:600px}
+.matter p{max-width:460px;color:#eee;margin:13px 0 18px;font-size:12px;line-height:1.6}
+.values{display:flex;gap:12px;justify-content:end}
+.value{width:105px;height:105px;border-radius:50%;background:rgba(255,255,255,.92);color:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-size:9px}
+.value b{font-size:24px;margin-bottom:5px}
+
+.testimonials{background:#f5eee5}
+.center{text-align:center}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
+.quote{background:#fff;border:1px solid #e8ded3;border-radius:7px;padding:20px}
+.avatar{width:42px;height:42px;border-radius:50%;background:#9f8a78;float:left;margin-right:10px}
+.stars{color:#a86735;letter-spacing:2px;font-size:11px}
+.quote p{font-size:10px;line-height:1.6;margin:12px 0;color:#625b56}
+.quote strong{font-size:10px}
+
+.social{background-image:linear-gradient(135deg,#5a3a28,#8b6246);background-size:cover;background-position:center;min-height:190px;color:#fff}
+.social-grid{display:grid;grid-template-columns:1fr 1fr;min-height:190px;align-items:center}
+.social-copy{justify-self:end;max-width:350px}
+.social h2{font-size:39px}
+.social p{font-size:11px;margin:10px 0 14px}
+.social .btn{background:transparent;border:1px solid rgba(255,255,255,.8)}
+
+.newsletter{background:#fffaf4;border-bottom:1px solid #e7ddd2;padding:15px 0}
+.news-grid{display:flex;align-items:center;justify-content:space-between;gap:15px}
+.news-grid strong{font-size:11px}
+.news-grid span{font-size:9px;color:var(--muted)}
+.form{display:flex;background:#fff;border:1px solid #ddd1c5;border-radius:24px;overflow:hidden}
+.form input{border:0;outline:0;padding:10px 15px;width:190px;font-size:10px}
+.form button{border:0;background:var(--brown);color:#fff;padding:0 19px;font-size:10px}
+
+footer{background:#f7f1e8;padding:35px 0 18px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px}
+footer .logo{color:var(--ink);font-size:25px;font-weight:900}
+footer p,footer li{font-size:9px;color:var(--muted);line-height:1.8}
+footer ul{list-style:none;padding:0;margin:7px 0 0}
+.bottom{border-top:1px solid #dfd4c8;margin-top:24px;padding-top:12px;display:flex;justify-content:space-between;font-size:8px;color:#8b8178}
+
+@media(max-width:800px){
+ .links{display:none}
+ .container,.hero-inner{width:min(100% - 28px,1180px)}
+ .hero{min-height:650px}
+ .hero h1{font-size:52px}
+ .trust-grid{grid-template-columns:repeat(2,1fr);gap:0}
+ .trust-item{padding:12px 4px}
+ .cards{grid-template-columns:repeat(2,1fr)}
+ .split,.about-grid,.matter-grid,.social-grid{grid-template-columns:1fr}
+ .about-photo{min-height:270px}
+ .values{justify-content:start;margin-top:20px;flex-wrap:wrap}
+ .products{grid-template-columns:repeat(2,1fr)}
+ .testimonials-grid{grid-template-columns:1fr}
+ .social-copy{justify-self:start;padding:30px 0}
+ .news-grid{flex-direction:column;align-items:flex-start}
+ .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:480px){
+ .hero h1{font-size:45px}
+ .cards{gap:7px}
+ .card{min-height:210px}
+ .section{padding:38px 0}
+ .section h2,.matter h2{font-size:37px}
+ .footer-grid{grid-template-columns:1fr}
+}
+
+/* ===== Responsive refinement ===== */
+html{overflow-x:hidden}
+body{overflow-x:hidden;-webkit-text-size-adjust:100%}
+img{max-width:100%}
+button,input{font:inherit}
+
+/* Desktop / large tablets */
+@media (min-width:801px){
+  .mobile-menu{display:none}
+  .hero{background-position:58% center}
+  .hero-inner{min-height:560px;display:flex;flex-direction:column;justify-content:center;padding-top:88px;padding-bottom:55px}
+  .hero h1{font-size:clamp(58px,5.6vw,78px)}
+  .hero p{font-size:13px}
+  .section{padding:64px 0}
+  .card{height:260px;min-height:0}
+  .about-photo{min-height:330px;background-position:center}
+  .matter{min-height:310px}
+  .social{min-height:250px}
+  .social-grid{min-height:250px}
+}
+
+/* Tablet */
+@media (max-width:1100px) and (min-width:801px){
+  .container,.hero-inner{width:min(100% - 36px,1020px)}
+  .links{gap:16px;font-size:10px}
+  .actions .action-icon{display:none}
+  .actions .btn{padding:10px 15px}
+  .split{grid-template-columns:.8fr 1.5fr}
+  .cards{gap:8px}
+  .card{height:230px}
+  .products{gap:10px}
+  .matter-grid{grid-template-columns:1.1fr 1fr}
+}
+
+/* Mobile */
+@media (max-width:800px){
+  .container,.hero-inner{width:calc(100% - 32px);max-width:none}
+  header{padding:13px 0}
+  .nav{gap:10px;position:relative}
+  .logo{font-size:24px}
+  .links{display:none}
+  .actions{margin-left:auto;gap:7px}
+  .actions .action-icon{display:none}
+  .actions .btn{font-size:10px;padding:9px 14px}
+  .mobile-menu{display:block;position:relative;order:3;color:#fff}
+  .mobile-menu summary{list-style:none;cursor:pointer;width:38px;height:38px;border:1px solid rgba(255,255,255,.5);border-radius:50%;display:grid;place-items:center;font-size:18px;line-height:1}
+  .mobile-menu summary::-webkit-details-marker{display:none}
+  .mobile-menu[open] summary{background:rgba(255,255,255,.12)}
+  .mobile-menu nav{position:absolute;right:0;top:48px;width:min(260px,calc(100vw - 32px));padding:10px;background:rgba(39,25,18,.97);border:1px solid rgba(255,255,255,.16);border-radius:14px;box-shadow:0 16px 40px rgba(0,0,0,.22);display:grid;gap:2px}
+  .mobile-menu nav a{padding:12px 13px;border-radius:9px;font-size:12px}
+  .mobile-menu nav a:hover{background:rgba(255,255,255,.08)}
+  .mobile-menu .mobile-order{background:var(--brown);text-align:center;margin-top:5px}
+
+  .hero{min-height:690px;background-position:62% center;position:relative;isolation:isolate;background-image:linear-gradient(90deg,rgba(35,20,12,.82) 0%,rgba(43,24,13,.58) 52%,rgba(43,24,13,.16) 100%),var(--hero-image)}
+  .hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(35,20,12,.84) 0%,rgba(43,24,13,.58) 55%,rgba(43,24,13,.16) 100%);z-index:-1}
+  .hero-inner{position:relative;z-index:1;min-height:690px;padding-top:110px;padding-bottom:48px;justify-content:center}
+  .eyebrow{font-size:8px;letter-spacing:1.6px;margin-bottom:12px}
+  .hero h1{font-size:clamp(43px,12vw,58px);line-height:.9;max-width:330px;margin-bottom:18px}
+  .hero p{font-size:11px;line-height:1.55;max-width:315px;margin-bottom:18px}
+  .hero-buttons{display:flex;flex-direction:column;align-items:stretch;width:min(100%,300px);gap:8px;margin-bottom:22px}
+  .hero-buttons .btn{width:100%;font-size:10px;padding:11px 14px}
+  .social-proof{font-size:9px}
+  .face{width:28px;height:28px}
+
+  .trust-grid{grid-template-columns:repeat(2,1fr);padding:0}
+  .trust-item{min-height:66px;padding:10px 7px;justify-content:flex-start;gap:7px;font-size:8.5px;line-height:1.3}
+  .trust-item:nth-child(2){border-right:0}
+  .trust-item:nth-child(-n+2){border-bottom:1px solid #ded5ca}
+  .icon{font-size:18px;flex:0 0 auto}
+
+  .section{padding:45px 0}
+  .split{grid-template-columns:1fr;gap:25px}
+  .section h2{font-size:clamp(36px,10vw,46px);line-height:.95}
+  .section p{font-size:11px;line-height:1.6;margin:12px 0 16px}
+  .split>.container,.split>div:first-child{max-width:100%}
+  .split>div:first-child .btn{font-size:10px}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .card{height:auto;min-height:0;aspect-ratio:4/5;border-radius:8px}
+  .card .overlay{padding:16px 10px 10px}
+  .card h3{font-size:17px;line-height:1}
+  .card small{font-size:8px;line-height:1.2}
+
+  .about-grid{grid-template-columns:1fr}
+  .about-photo{min-height:300px;height:64vw;max-height:390px;background-position:center;background-size:cover}
+  .about-copy{padding:42px 8%;min-height:310px;display:flex;flex-direction:column;justify-content:center}
+  .about-copy:after{right:10px;top:12px;width:70px;height:95px}
+  .about-copy .btn{align-self:flex-start}
+
+  .products-head{align-items:center;margin-bottom:16px}
+  .products-head h2{font-size:38px}
+  .arrows{gap:5px}
+  .arrow{width:30px;height:30px}
+  .products{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 9px}
+  .product img{aspect-ratio:1/1.05;border-radius:7px}
+  .product-name{font-size:17px;margin-top:6px;line-height:1}
+  .meta{font-size:8px;margin-top:3px}
+  .price{font-size:9px;margin-top:3px}
+  .bag{width:25px;height:25px;margin-top:-24px;border-radius:5px}
+
+  .matter{padding:42px 0;min-height:0;background-position:center}
+  .matter-grid{grid-template-columns:1fr;min-height:0;gap:24px}
+  .matter h2{font-size:clamp(37px,10vw,47px);line-height:.94}
+  .matter p{font-size:10px;line-height:1.55;max-width:320px}
+  .values{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;justify-content:stretch;margin-top:0}
+  .value{width:100%;height:auto;aspect-ratio:1;border-radius:50%;font-size:7px;padding:8px}
+  .value b{font-size:19px;margin-bottom:3px}
+
+  .testimonials{padding:44px 0}
+  .testimonials-grid{grid-template-columns:1fr;gap:8px;margin-top:20px}
+  .quote{padding:15px;border-radius:8px}
+  .quote p{font-size:9px;margin:9px 0;line-height:1.55}
+  .quote strong{font-size:9px}
+  .avatar{width:38px;height:38px}
+
+  .social{min-height:0;background-position:35% center;background-size:cover}
+  .social-grid{grid-template-columns:1fr;min-height:360px;align-items:end}
+  .social-copy{justify-self:stretch;max-width:none;padding:34px 0 38px;background:linear-gradient(transparent,rgba(38,22,13,.18));text-align:left}
+  .social h2{font-size:39px;line-height:.95}
+  .social p{font-size:10px;line-height:1.5;max-width:290px}
+  .social .btn{font-size:10px}
+
+  .newsletter{padding:18px 0}
+  .news-grid{display:grid;grid-template-columns:1fr;gap:12px}
+  .news-grid strong{font-size:10px}
+  .news-grid span{font-size:8px;line-height:1.4;display:inline-block;margin-top:2px}
+  .form{width:100%;height:40px}
+  .form input{width:100%;min-width:0;font-size:9px;padding:9px 12px}
+  .form button{font-size:9px;padding:0 15px;white-space:nowrap}
+
+  footer{padding:30px 0 16px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:24px 18px}
+  footer .logo{font-size:24px}
+  footer p,footer li{font-size:8px;line-height:1.7}
+  .bottom{margin-top:20px;display:flex;flex-direction:column;gap:5px;font-size:7px;line-height:1.4}
+}
+
+@media (max-width:520px){
+  .container,.hero-inner{width:calc(100% - 24px)}
+  .hero{min-height:650px;background-position:60% center}
+  .hero-inner{min-height:650px;padding-top:100px}
+  .hero h1{font-size:clamp(40px,13vw,53px);max-width:310px}
+  .hero p{max-width:285px}
+  .cards{gap:6px}
+  .card .overlay{padding:14px 8px 9px}
+  .card h3{font-size:15px}
+  .card small{font-size:7px}
+  .about-photo{min-height:260px}
+  .about-copy{padding:38px 7%;min-height:300px}
+  .products{gap:17px 7px}
+  .products-head h2{font-size:34px}
+  .value{font-size:6.5px}
+  .value b{font-size:17px}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+
+@media (max-width:380px){
+  .logo{font-size:21px}
+  .actions .btn{padding:8px 11px;font-size:9px}
+  .mobile-menu summary{width:34px;height:34px}
+  .hero{min-height:620px}
+  .hero-inner{min-height:620px}
+  .hero h1{font-size:39px}
+  .hero-buttons{width:100%;max-width:275px}
+  .trust-item{font-size:7.5px}
+  .section h2,.products-head h2{font-size:32px}
+  .product-name{font-size:15px}
+}
+
+
+/* ===== VERSION SANS IMAGES ===== */
+.image-placeholder{display:block;width:100%;height:100%;min-height:180px;background:linear-gradient(135deg,#eadfD2,#cbb9a7);position:relative;overflow:hidden}
+.image-placeholder::after{content:"";position:absolute;inset:14%;border:1px solid rgba(111,60,32,.18);border-radius:8px}
+.hero{background-image:linear-gradient(90deg,rgba(43,24,13,.9),rgba(111,60,32,.55)),linear-gradient(135deg,#4a3021,#9a7455);background-size:cover;background-position:center}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 75% 35%,rgba(255,255,255,.12),transparent 32%),linear-gradient(120deg,transparent 45%,rgba(255,255,255,.06) 46%,transparent 48%);pointer-events:none}
+.card-media,.product-media,.category-media,.about-media,.social-media{background:linear-gradient(135deg,#eadfd3,#c8b29e);overflow:hidden}
+.category-media,.product-media{min-height:220px}
+.about-media{min-height:360px}
+.social-media{min-height:190px}
+@media (max-width: 900px){
+  .container{width:min(100% - 32px,720px)}
+  .links{gap:16px}
+  .hero{min-height:650px;background-image:linear-gradient(180deg,rgba(43,24,13,.82),rgba(75,45,28,.92)),linear-gradient(135deg,#4a3021,#9a7455)}
+}
+@media (max-width: 700px){
+  .container{width:calc(100% - 28px)}
+  header{padding:14px 0}
+  .nav{gap:12px}
+  .logo{font-size:24px}
+  .links{display:none}
+  .actions{gap:6px}
+  .actions .btn{display:none}
+  .mobile-menu{display:flex!important}
+  .hero{min-height:610px;padding-top:110px}
+  .hero-content{max-width:100%!important}
+  .hero h1{font-size:48px!important;line-height:.95!important}
+  .hero-actions{flex-direction:column;align-items:stretch!important}
+  .hero-actions .btn{width:100%}
+  .matter-grid{grid-template-columns:1fr!important;gap:28px;padding:54px 0}
+  .values{justify-content:flex-start;flex-wrap:wrap}
+  .value{width:92px;height:92px}
+  .categories-grid,.category-grid{grid-template-columns:1fr 1fr!important;gap:10px!important}
+  .category-media,.product-media{min-height:170px}
+  .products-grid{grid-template-columns:1fr 1fr!important;gap:10px!important}
+  .product{min-width:0}
+  .product-name{font-size:16px!important}
+  .about-grid{grid-template-columns:1fr!important}
+  .about-media{min-height:260px;order:0}
+  .about-content{order:1;padding:36px 0!important}
+  .testimonials-grid{grid-template-columns:1fr!important}
+  .social-grid{grid-template-columns:repeat(2,1fr)!important}
+  .newsletter-inner{flex-direction:column;align-items:stretch!important;gap:18px}
+  .newsletter-form{width:100%!important}
+  footer .footer-grid{grid-template-columns:1fr 1fr!important;gap:28px}
+}
+@media (max-width: 420px){
+  .container{width:calc(100% - 22px)}
+  .hero{min-height:590px;padding-top:96px}
+  .hero h1{font-size:40px!important}
+  .hero p{font-size:13px!important}
+  .categories-grid,.category-grid,.products-grid{grid-template-columns:1fr!important}
+  .category-media,.product-media{min-height:210px}
+  .values{gap:8px}
+  .value{width:82px;height:82px;font-size:8px}
+  footer .footer-grid{grid-template-columns:1fr!important}
+  .social-grid{grid-template-columns:1fr 1fr!important}
+}
+
+
+/* ===== Images ajoutees ===== */
+.hero{background-image:linear-gradient(90deg,rgba(43,24,13,.72),rgba(43,24,13,.12)),url(images/image-01.jpg)!important;background-size:cover!important;background-position:70% 22%!important}
+.about-photo{background-image:url(images/image-02.jpg)!important;background-size:cover!important;background-position:center!important}
+.matter{background-image:linear-gradient(90deg,rgba(46,22,10,.72),rgba(46,22,10,.24)),url(images/image-03.jpg)!important;background-size:cover!important;background-position:center!important}
+.social{background-color:var(--brown);background-image:none!important}
+.insta-collage{background-image:url(images/image-04.jpg)}
+@media(max-width:800px){
+  .insta-collage{min-height:200px;background-size:cover;background-position:35% center}
+}
+
+.card img{object-position:top center}
+.product img{object-position:center 30%}
+
+
+/* ===== Refinements Mailles & Co ===== */
+.logo i{font-size:.38em;vertical-align:middle}
+.icon-btn i{font-size:14px}
+.btn i{margin-left:7px;font-size:.88em}
+.mobile-menu summary i{font-size:17px}
+.stars{display:flex;gap:3px}
+.stars i{font-size:9px}
+.avatar{overflow:hidden;background:#e7ddd3;display:flex;align-items:center;justify-content:center}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.matter{background-position:center}
+.matter-grid{grid-template-columns:1fr 1.25fr;gap:42px}
+.matter-copy{max-width:500px}
+.custom-process{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  align-self:center;
+}
+.process-card{
+  position:relative;
+  min-height:142px;
+  padding:21px 18px 18px;
+  background:rgba(255,255,255,.92);
+  border:1px solid rgba(255,255,255,.38);
+  border-radius:10px;
+  color:var(--ink);
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center;
+}
+.process-card i{
+  color:#8d5c42;
+  font-size:18px;
+  margin-bottom:10px;
+}
+.process-card strong{font-family:"Bitter",Georgia,serif;font-weight:800;font-size:20px}
+.process-card > span:last-child{font-size:9px;color:#776e67;line-height:1.45;margin-top:5px}
+.process-number{
+  position:absolute;
+  top:11px;
+  right:13px;
+  font-size:8px;
+  letter-spacing:.1em;
+  color:#a66c4b;
+}
+.footer-socials{display:flex;gap:8px;margin-top:16px}
+.footer-socials a{
+  width:30px;height:30px;border:1px solid var(--line);border-radius:50%;
+  display:grid;place-items:center;transition:.2s;
+}
+.footer-socials a:hover{background:var(--brown);color:#fff;border-color:var(--brown)}
+footer li a{display:inline-flex;align-items:center;gap:7px;transition:color .2s}
+footer li a:hover{color:var(--brown)}
+footer li a i{width:13px;text-align:center;font-size:9px}
+.bottom i{font-size:8px}
+.social .btn i:first-child{margin-left:0;margin-right:7px}
+@media(max-width:800px){
+  .matter-grid{grid-template-columns:1fr!important;gap:26px}
+  .custom-process{grid-template-columns:repeat(2,1fr);gap:8px}
+  .process-card{min-height:126px;padding:18px 14px}
+}
+@media(max-width:480px){
+  .custom-process{grid-template-columns:1fr 1fr}
+  .process-card{min-height:116px}
+  .process-card strong{font-size:18px}
+}
+
+</style>
+<style>
+/* ===== Functional polish / icons ===== */
+.icon-btn{position:relative;border:0;background:transparent;color:inherit;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;cursor:pointer}
+.icon-btn:hover{background:rgba(255,255,255,.12)}
+.icon-btn svg,.bag svg,.trust-item svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.cart-count{position:absolute;right:-1px;top:-1px;min-width:15px;height:15px;padding:0 4px;border-radius:99px;background:var(--brown);color:#fff;font:600 8px/15px "DM Sans",sans-serif;text-align:center}
+.bag{border:0;cursor:pointer}.bag svg{width:15px;height:15px}.card[tabindex]{cursor:pointer}
+.sr-status{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.site-modal{position:fixed;inset:0;z-index:100;display:none}.site-modal.is-open{display:block}
+.modal-backdrop{position:absolute;inset:0;background:rgba(28,18,12,.58);backdrop-filter:blur(3px)}
+.modal-panel{position:relative;width:min(520px,calc(100% - 28px));max-height:calc(100vh - 40px);overflow:auto;margin:20px auto;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:0 24px 80px rgba(0,0,0,.25);color:var(--ink)}
+.modal-close{position:absolute;right:14px;top:12px;border:0;background:transparent;font-size:27px;line-height:1;color:var(--muted);cursor:pointer}.modal-eyebrow{font-size:9px;letter-spacing:1.8px;text-transform:uppercase;color:#a66c4b;margin-bottom:7px}.modal-panel h2{font-size:40px;margin:0 0 20px}.cart-items{display:grid;gap:9px}.cart-empty{padding:22px 0;color:var(--muted);font-size:11px}.cart-row{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;border-bottom:1px solid var(--line);padding:10px 0;font-size:11px}.cart-row small{display:block;color:var(--muted);font-size:8px;margin-top:2px}.qty{display:flex;align-items:center;gap:6px}.qty button{border:1px solid var(--line);background:#fff;width:25px;height:25px;border-radius:50%;cursor:pointer}.remove{border:0;background:transparent;color:#9a5d45;cursor:pointer;font-size:10px}.cart-total{display:flex;justify-content:space-between;border-top:1px solid var(--line);margin-top:16px;padding-top:15px;font-size:12px}.modal-order{width:100%;margin-top:15px;border:0;cursor:pointer}.modal-note{font-size:9px;color:var(--muted);line-height:1.5;margin-top:10px}.contact-form{display:grid;gap:12px}.contact-form label{font-size:10px;color:var(--muted);display:grid;gap:5px}.contact-form input,.contact-form textarea{width:100%;border:1px solid var(--line);border-radius:9px;background:#fff;padding:11px 12px;outline:none;color:var(--ink);font:11px "DM Sans",sans-serif;resize:vertical}.contact-form input:focus,.contact-form textarea:focus{border-color:#a66c4b;box-shadow:0 0 0 3px rgba(166,108,75,.1)}.contact-form .btn{border:0;cursor:pointer}.form-success{font-size:11px;color:#5e7b54;background:#edf3e9;padding:12px;border-radius:9px}
+.newsletter .form{position:relative}.newsletter .form button{cursor:pointer}.newsletter .form button:hover,.btn:hover{filter:brightness(.95)}
+@media(max-width:700px){.icon-btn{width:32px;height:32px}.modal-panel{padding:23px 18px}.modal-panel h2{font-size:34px}.cart-row{grid-template-columns:1fr auto}.cart-row .remove{grid-column:2}.cart-total{font-size:11px}}
+
+/* ===== Navbar fixe ===== */
+html{scroll-padding-top:72px}
+header{position:fixed;top:0;left:0;right:0;z-index:500;transition:background .3s,box-shadow .3s,padding .3s}
+header.scrolled{background:rgba(47,33,25,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 4px 24px rgba(0,0,0,.18);padding:12px 0}
+.links a{position:relative;display:inline-flex;align-items:center;gap:6px;padding:4px 0;transition:opacity .2s}
+.links a i{font-size:10px;opacity:.85}
+.links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:#fff;transition:width .25s}
+.links a:hover::after,.links a.active::after{width:100%}
+.mobile-menu nav a i{width:18px;margin-right:8px;text-align:center;opacity:.85}
+.eyebrow i{margin-right:6px}
+.stars i{font-size:11px;margin-right:2px}
+.social-proof i{color:#f0c27b;font-size:9px}
+.bag{display:grid}.bag i{font-size:12px}
+.to-top{position:fixed;right:18px;bottom:18px;z-index:400;width:42px;height:42px;border:0;border-radius:50%;background:var(--brown);color:#fff;cursor:pointer;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25);opacity:0;visibility:hidden;transform:translateY(10px);transition:.25s}
+.to-top.show{opacity:1;visibility:visible;transform:none}
+.contact-form label i{margin-right:5px;color:#a66c4b}
+.form button i{margin-right:5px}
+@media(max-width:800px){html{scroll-padding-top:62px}}
+
+/* ===== V3 : carrousel, instagram, lisibilité, finitions ===== */
+.products{display:grid!important;grid-template-columns:none!important;grid-auto-flow:column;grid-auto-columns:calc((100% - 36px)/4);gap:12px!important;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:6px}
+.products::-webkit-scrollbar{display:none}
+.product{scroll-snap-align:start;min-width:0;position:relative}
+.product img{transition:transform .4s}.product:hover img{transform:scale(1.03)}
+.product{overflow:hidden}.product img{border-radius:8px}
+.arrow{cursor:pointer;background:#fff;color:var(--brown);transition:.2s}.arrow:hover:not(:disabled){background:var(--brown);color:#fff}.arrow:disabled{opacity:.35;cursor:default}
+@media(max-width:800px){.products{grid-auto-columns:calc((100% - 9px)/2)!important;gap:9px!important}}
+.insta-collage{background-size:cover!important;background-position:center!important;min-height:250px;height:100%;border-radius:0}
+@media(max-width:800px){.social-grid{grid-template-columns:1fr!important;min-height:0!important}.insta-collage{min-height:200px;order:0}.social-copy{padding:26px 0 34px!important}}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);z-index:600;background:#2f2119;color:#fff;padding:11px 18px;border-radius:99px;font-size:12px;display:flex;gap:8px;align-items:center;opacity:0;pointer-events:none;transition:.3s;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.cart-count.bump{animation:bump .4s}@keyframes bump{50%{transform:scale(1.5)}}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+/* lisibilité : tailles minimales */
+.meta,.card small,.eyebrow,.news-grid span,.modal-note,.cart-row small{font-size:max(11px,1em)}
+.meta{font-size:11px!important}.price{font-size:13px!important}.card small{font-size:11px!important}.eyebrow{font-size:11px!important}
+.quote p,.quote strong{font-size:12px!important}.section p,.matter p,.social p{font-size:13px!important}
+footer p,footer li,.form input,.form button{font-size:11px!important}.bottom{font-size:10px!important}
+.process-card > span:last-child{font-size:11px!important}
+.logo:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid #a66c4b;outline-offset:3px}
+.form-error{color:#9a3d2b}
+
+/* ===== V4 : nettoyage + boutons panier + filtres ===== */
+[hidden]{display:none!important}
+.product{display:flex;flex-direction:column}
+.add-btn{width:100%;margin-top:12px;padding:11px 14px;border:0;cursor:pointer;font-size:12px;gap:8px}
+.add-btn i{margin:0!important}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+.chip{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:99px;padding:8px 15px;font-size:12px;cursor:pointer;transition:.2s}
+.chip:hover,.chip.active{background:var(--brown);border-color:var(--brown);color:#fff}
+.hero-buttons{margin-bottom:0}
+footer .footer-grid{grid-template-columns:1.6fr 1fr 1fr!important}
+footer li.plain{display:flex;gap:7px;align-items:center}footer li.plain i{width:13px;text-align:center;font-size:9px}
+footer strong{font-size:12px}
+.checkout-form{margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
+.btn.wa{background:#2a8f55;border:0;cursor:pointer}
+.info-body p{font-size:12px!important;color:var(--muted);line-height:1.7;margin:0 0 12px}
+.info-body h3{font-size:21px;margin:16px 0 4px;color:var(--ink)}
+@media(max-width:800px){
+ .chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-right:-16px;padding-right:16px}.chips::-webkit-scrollbar{display:none}.chip{white-space:nowrap;flex:0 0 auto}
+ footer .footer-grid{grid-template-columns:1fr 1fr!important}.footer-grid>div:first-child{grid-column:1/-1}
+}
+
+/* ===== V5 : badges stock, variantes, livraison ===== */
+.stock-badge{display:inline-flex;align-items:center;gap:5px;font-size:10px;letter-spacing:.02em;padding:3px 9px;border-radius:99px;margin:4px 0 2px;width:fit-content}
+.stock-badge.stock-en{background:#eaf1e6;color:#4c6b41}
+.stock-badge.stock-commande{background:#f6ede1;color:#a66c4b}
+.stock-badge.stock-unique{background:#f3e6ea;color:#96475b}
+.variant{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.variant .opt{border:1px solid var(--line);background:#fff;color:var(--ink);font-size:11px;padding:5px 10px;border-radius:8px;cursor:pointer;transition:.15s}
+.variant .opt:hover{border-color:var(--brown)}
+.variant .opt.active{background:var(--brown);border-color:var(--brown);color:#fff}
+.cart-row small .v-tag{color:var(--brown)}
+</style><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+</head>
+<body id="top">
+<header>
+<div class="container nav">
+<a class="logo" href="#top">Mailles &amp; Co</a>
+<nav class="links"><a href="#collections"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Collections</a><a href="#about"><i class="fa-solid fa-user" aria-hidden="true"></i> À propos</a><a href="#sur-mesure"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Sur mesure</a><a href="#contact"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Contact</a></nav>
+<div class="actions"><button aria-label="Ouvrir le panier" class="icon-btn cart-trigger" title="Panier" type="button"><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i><span class="cart-count">0</span></button></div>
+<details class="mobile-menu"><summary aria-label="Ouvrir le menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></summary><nav><a href="#collections"><i class="fa-solid fa-layer-group" aria-hidden="true"></i>Collections</a><a href="#about"><i class="fa-solid fa-user" aria-hidden="true"></i>À propos</a><a href="#sur-mesure"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>Sur mesure</a><a href="#contact"><i class="fa-solid fa-envelope" aria-hidden="true"></i>Contact</a></nav></details>
+</div>
+</header>
+<section class="hero"><div class="hero-inner"><h1>Des pièces uniques<br/>qui ont du sens</h1><p>Des créations en tricot et crochet, pensées avec passion, pour embellir votre quotidien et célébrer l'art du fait main.</p><div class="hero-buttons"><a class="btn" href="#collections">Découvrir la collection <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div></div></section>
+
+<section class="section" id="collections">
+<div class="container split">
+<div><div class="eyebrow" style="color:#a66c4b"><i class="fa-solid fa-gem" aria-hidden="true"></i>Nos univers</div><h2>Des créations<br/>pour chaque moment</h2><p>Accessoires, vêtements, décoration... découvrez un univers doux et authentique, imaginé et réalisé à la main.</p><a class="btn" href="#coups-de-coeur">Voir toutes les créations <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+<div class="cards">
+<a class="card" data-category="Vêtements" role="button" tabindex="0"><img alt="Vêtements en tricot fait main" src="images/image-05.jpg"/><div class="overlay"><h3>Vêtements</h3><small>Pulls, gilets, tops...</small></div></a>
+<a class="card" data-category="Sacs &amp; accessoires" role="button" tabindex="0"><img alt="Sacs et accessoires au crochet" src="images/image-06.jpg"/><div class="overlay"><h3>Sacs &amp; accessoires</h3><small>Sacs, pochettes, chouchous...</small></div></a>
+<a class="card" data-category="Univers bébé" role="button" tabindex="0"><img alt="Univers bébé - doudous et couvertures" src="images/image-07.jpg"/><div class="overlay"><h3>Univers bébé</h3><small>Doudous, douceurs...</small></div></a>
+<a class="card" data-category="Maison &amp; déco" role="button" tabindex="0"><img alt="Coussins et décoration en crochet" src="images/image-08.jpg"/><div class="overlay"><h3>Maison &amp; déco</h3><small>Coussins, paniers...</small></div></a>
+</div>
+</div>
+</section>
+<section class="about" id="about"><div class="about-grid">
+<div aria-label="Créatrice tricotant à la main" class="about-photo" role="img"></div>
+<div class="about-copy"><div class="eyebrow" style="color:#a66c4b"><i class="fa-solid fa-user" aria-hidden="true"></i>À propos</div><h2>Un savoir-faire<br/>fait avec passion</h2><p>Je suis une créatrice passionnée par le tricot et le crochet. Chaque pièce est imaginée et réalisée à la main, avec le souci du détail, des matières naturelles et l'envie de proposer des créations durables et intemporelles.</p></div>
+</div></section>
+<section class="section" id="coups-de-coeur">
+<div class="container">
+<div class="products-head"><div><div class="eyebrow" style="color:#a66c4b"><i class="fa-solid fa-star" aria-hidden="true"></i>Coups de cœur</div><h2>Nos créations phares</h2></div><div class="arrows"><button class="arrow" type="button" aria-label="Précédent"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button><button class="arrow" type="button" aria-label="Suivant"><i class="fa-solid fa-chevron-right"></i></button></div></div>
+<div class="chips" role="group" aria-label="Filtrer les créations"><button class="chip active" data-filter="all" type="button">Tout</button><button class="chip" data-filter="Vêtements" type="button">Vêtements</button><button class="chip" data-filter="Sacs &amp; accessoires" type="button">Sacs &amp; accessoires</button><button class="chip" data-filter="Univers bébé" type="button">Univers bébé</button><button class="chip" data-filter="Maison &amp; déco" type="button">Maison &amp; déco</button></div>
+<div class="products">
+<div class="product" data-meta="En laine mérinos" data-category="Vêtements" data-name="Gilet oversize" data-price="89,00 €"><img alt="Gilet oversize en laine mérinos" src="images/image-09.jpg"/><div class="product-name">Gilet oversize</div><div class="stock-badge stock-commande"><i class="fa-regular fa-clock" aria-hidden="true"></i> Fait à la commande · ~2 semaines</div><div class="meta">En laine mérinos</div><div class="variant" data-variant-label="Taille" role="group" aria-label="Taille"><button class="opt active" data-opt="S" type="button">S</button><button class="opt" data-opt="M" type="button">M</button><button class="opt" data-opt="L" type="button">L</button></div><div class="price">89,00 €</div><button class="btn add-btn add-cart" type="button"><i class="fa-solid fa-cart-plus" aria-hidden="true"></i> Ajouter au panier</button></div>
+<div class="product" data-meta="Fait main" data-category="Sacs &amp; accessoires" data-name="Sac au crochet" data-price="55,00 €"><img alt="Sac au crochet fait main" src="images/image-10.jpg"/><div class="product-name">Sac au crochet</div><div class="stock-badge stock-en"><i class="fa-solid fa-check" aria-hidden="true"></i> En stock</div><div class="meta">Fait main</div><div class="variant" data-variant-label="Coloris" role="group" aria-label="Coloris"><button class="opt active" data-opt="Écru" type="button">Écru</button><button class="opt" data-opt="Camel" type="button">Camel</button><button class="opt" data-opt="Terracotta" type="button">Terracotta</button></div><div class="price">55,00 €</div><button class="btn add-btn add-cart" type="button"><i class="fa-solid fa-cart-plus" aria-hidden="true"></i> Ajouter au panier</button></div>
+<div class="product" data-meta="Plusieurs coloris" data-category="Sacs &amp; accessoires" data-name="Bonnet cosy" data-price="35,00 €"><img alt="Bonnet cosy en tricot" src="images/image-11.jpg"/><div class="product-name">Bonnet cosy</div><div class="stock-badge stock-en"><i class="fa-solid fa-check" aria-hidden="true"></i> En stock</div><div class="meta">Plusieurs coloris</div><div class="variant" data-variant-label="Coloris" role="group" aria-label="Coloris"><button class="opt active" data-opt="Écru" type="button">Écru</button><button class="opt" data-opt="Ocre" type="button">Ocre</button><button class="opt" data-opt="Terracotta" type="button">Terracotta</button><button class="opt" data-opt="Gris" type="button">Gris</button></div><div class="price">35,00 €</div><button class="btn add-btn add-cart" type="button"><i class="fa-solid fa-cart-plus" aria-hidden="true"></i> Ajouter au panier</button></div>
+<div class="product" data-meta="100% coton" data-category="Univers bébé" data-name="Doudou lapin" data-price="28,00 €"><img alt="Doudou lapin en coton" src="images/image-12.jpg"/><div class="product-name">Doudou lapin</div><div class="stock-badge stock-en"><i class="fa-solid fa-check" aria-hidden="true"></i> En stock</div><div class="meta">100% coton</div><div class="price">28,00 €</div><button class="btn add-btn add-cart" type="button"><i class="fa-solid fa-cart-plus" aria-hidden="true"></i> Ajouter au panier</button></div>
+<div class="product" data-meta="Fleurs éternelles au crochet" data-category="Maison &amp; déco" data-name="Bouquet de pivoines" data-price="45,00 €"><img alt="Bouquet de pivoines au crochet" loading="lazy" src="images/image-13.jpg"/><div class="product-name">Bouquet de pivoines</div><div class="stock-badge stock-unique"><i class="fa-solid fa-star" aria-hidden="true"></i> Pièce unique</div><div class="meta">Fleurs éternelles au crochet</div><div class="price">45,00 €</div><button class="btn add-btn add-cart" type="button"><i class="fa-solid fa-cart-plus" aria-hidden="true"></i> Ajouter au panier</button></div>
+<div class="product" data-meta="Coton écru, fait main" data-category="Maison &amp; déco" data-name="Napperon dentelle" data-price="32,00 €"><img alt="Napperon en dentelle au crochet" loading="lazy" src="images/image-14.jpg"/><div class="product-name">Napperon dentelle</div><div class="stock-badge stock-en"><i class="fa-solid fa-check" aria-hidden="true"></i> En stock</div><div class="meta">Coton écru, fait main</div><div class="price">32,00 €</div><button class="btn add-btn add-cart" type="button"><i class="fa-solid fa-cart-plus" aria-hidden="true"></i> Ajouter au panier</button></div>
+<div class="product" data-meta="Lot de 4 · coton" data-category="Maison &amp; déco" data-name="Sous-verres ronds" data-price="18,00 €"><img alt="Sous-verres ronds au crochet" loading="lazy" src="images/image-15.jpg"/><div class="product-name">Sous-verres ronds</div><div class="stock-badge stock-en"><i class="fa-solid fa-check" aria-hidden="true"></i> En stock</div><div class="meta">Lot de 4 · coton</div><div class="price">18,00 €</div><button class="btn add-btn add-cart" type="button"><i class="fa-solid fa-cart-plus" aria-hidden="true"></i> Ajouter au panier</button></div>
+</div>
+</div>
+</section>
+<section class="matter" id="sur-mesure">
+<div class="container matter-grid">
+  <div class="matter-copy">
+    <div class="eyebrow"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i> Une création pensée avec soin</div>
+    <h2>De la matière première<br/>à votre quotidien</h2>
+    <p>Des matières naturelles, un travail minutieux et beaucoup d'amour pour des pièces qui traversent le temps.</p>
+    <a class="btn" href="#contact" data-topic="une création sur mesure">Parler de votre projet <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+  </div>
+  <div class="custom-process" aria-label="Étapes d'une création sur mesure">
+    <div class="process-card">
+      <span class="process-number">01</span>
+      <i class="fa-solid fa-comments" aria-hidden="true"></i>
+      <strong>Échanger</strong>
+      <span>Votre idée, vos envies, vos détails.</span>
+    </div>
+    <div class="process-card">
+      <span class="process-number">02</span>
+      <i class="fa-solid fa-palette" aria-hidden="true"></i>
+      <strong>Imaginer</strong>
+      <span>Matières, couleurs et finitions.</span>
+    </div>
+    <div class="process-card">
+      <span class="process-number">03</span>
+      <i class="fa-solid fa-scissors" aria-hidden="true"></i>
+      <strong>Créer</strong>
+      <span>La pièce prend vie à la main.</span>
+    </div>
+    <div class="process-card">
+      <span class="process-number">04</span>
+      <i class="fa-solid fa-box-open" aria-hidden="true"></i>
+      <strong>Recevoir</strong>
+      <span>Une création prête à vous accompagner.</span>
+    </div>
+  </div>
+</div>
+</section>
+<section class="section testimonials"><div class="container">
+<div class="center"><div class="eyebrow" style="color:#a66c4b"><i class="fa-solid fa-comment-dots" aria-hidden="true"></i>Vos mots</div><h2>Elles en parlent mieux que nous</h2><div style="width:38px;height:1px;background:#8d5c42;margin:16px auto"></div></div>
+<div class="testimonials-grid">
+<div class="quote"><div class="avatar"><img src="images/image-16.jpg" alt="Photo de profil de Sophie L."/></div><div class="stars" aria-label="5 étoiles sur 5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p>Un travail incroyable ! Je ne sais plus quoi dire, c’est encore plus beau qu’en vrai, et tout est soigné dans les moindres détails.</p><strong>Sophie L.</strong></div>
+<div class="quote"><div class="avatar"><img src="images/image-17.jpg" alt="Photo de profil de Amélie D."/></div><div class="stars" aria-label="5 étoiles sur 5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p>Qualité au top, matières douces et finitions parfaites. Une créatrice très à l'écoute.</p><strong>Amélie D.</strong></div>
+<div class="quote"><div class="avatar"><img src="images/image-18.jpg" alt="Photo de profil de Marine L."/></div><div class="stars" aria-label="5 étoiles sur 5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p>Pièces magnifiques et vraiment authentiques. On sent la passion dans chaque création.</p><strong>Marine L.</strong></div>
+</div>
+</div></section>
+<section class="social"><div class="container social-grid"><div aria-hidden="true" class="insta-collage"></div><div class="social-copy"><div class="eyebrow"><i class="fa-brands fa-instagram" aria-hidden="true"></i>Suivez mon univers</div><h2>Un peu de douceur<br/>au quotidien</h2><p>Découvrez les coulisses, les nouvelles créations et beaucoup d'inspiration sur Instagram.</p><a class="btn" href="https://www.instagram.com/"><i class="fa-brands fa-instagram" aria-hidden="true"></i> Voir mon Instagram <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div></div></section>
+
+<div aria-hidden="true" aria-labelledby="cartTitle" aria-modal="true" class="site-modal" id="cartModal" role="dialog">
+<div class="modal-backdrop" data-close-modal=""></div>
+<div class="modal-panel">
+<button aria-label="Fermer" class="modal-close" data-close-modal="" type="button">×</button>
+<div class="modal-eyebrow"><i class="fa-solid fa-basket-shopping"></i> Votre sélection</div><h2 id="cartTitle">Panier</h2>
+<div class="cart-items" id="cartItems"></div>
+<div class="cart-total"><span>Total</span><strong id="cartTotal">0,00 €</strong></div>
+<button class="btn modal-order" id="checkoutBtn" type="button"><i class="fa-solid fa-lock" aria-hidden="true"></i> Passer commande</button>
+<form class="contact-form checkout-form" id="checkoutForm" hidden>
+<label><span><i class="fa-solid fa-user"></i>Nom complet</span><input name="cname" autocomplete="name" required/></label>
+<label><span><i class="fa-solid fa-envelope"></i>E-mail</span><input name="cemail" type="email" autocomplete="email" required/></label>
+<label><span><i class="fa-solid fa-location-dot"></i>Adresse de livraison</span><textarea name="caddr" rows="2" autocomplete="street-address" required></textarea></label>
+<label><span><i class="fa-solid fa-pen"></i>Précisions (facultatif)</span><textarea name="cnote" rows="2"></textarea></label>
+<button class="btn" type="submit"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Envoyer ma commande</button>
+<button class="btn wa" id="waBtn" type="button" hidden><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Commander via WhatsApp</button>
+</form>
+<p class="form-success" id="checkoutDone" hidden>Votre application e-mail s'est ouverte avec le récapitulatif. Envoyez le message pour valider : je reviens vers vous sous 24h pour confirmer disponibilité, frais de port et paiement.</p>
+<p class="modal-note">La commande sera finalisée avec la créatrice pour confirmer les disponibilités et les modalités de livraison.</p>
+</div>
+</div>
+<div aria-hidden="true" aria-labelledby="contactTitle" aria-modal="true" class="site-modal" id="contactModal" role="dialog">
+<div class="modal-backdrop" data-close-modal=""></div>
+<div class="modal-panel">
+<button aria-label="Fermer" class="modal-close" data-close-modal="" type="button">×</button>
+<div class="modal-eyebrow"><i class="fa-solid fa-circle-question"></i> Une question ?</div><h2 id="contactTitle">Contact</h2>
+<form class="contact-form" id="contactForm">
+<label><span><i class="fa-solid fa-user"></i>Nom</span><input autocomplete="name" name="name" placeholder="Votre nom" required=""/></label>
+<label><span><i class="fa-solid fa-envelope"></i>E-mail</span><input autocomplete="email" name="email" placeholder="vous@exemple.fr" required="" type="email"/></label>
+<label><span><i class="fa-solid fa-message"></i>Message</span><textarea name="message" placeholder="Votre message" required="" rows="4"></textarea></label>
+<button class="btn" type="submit"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Envoyer le message</button>
+</form>
+<p class="form-success" hidden="" id="contactSuccess">Votre application e-mail s'est ouverte : envoyez le message pour finaliser.</p>
+</div>
+</div>
+<div aria-hidden="true" aria-modal="true" class="site-modal" id="infoModal" role="dialog"><div class="modal-backdrop" data-close-modal=""></div><div class="modal-panel"><button aria-label="Fermer" class="modal-close" data-close-modal="" type="button">×</button><div class="modal-eyebrow"><i class="fa-solid fa-circle-info"></i> Informations</div><h2 id="infoTitle"></h2><div class="info-body" id="infoBody"></div></div></div>
+<footer id="contact"><div class="container">
+<div class="footer-grid">
+<div><div class="logo">Mailles &amp; Co</div><p>Tricot · Crochet · Créations faites main</p><div class="footer-socials" aria-label="Réseaux sociaux"><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a><a href="https://wa.me/" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a></div></div>
+<div><strong>Informations</strong><ul><li><a href="#info" data-info="livraison">Livraison</a></li><li><a href="#info" data-info="retours">Retours &amp; échanges</a></li><li><a href="#info" data-info="faq">FAQ</a></li><li><a href="#info" data-info="cgv">CGV</a></li><li><a href="#info" data-info="mentions">Mentions légales</a></li></ul></div>
+<div><strong>Contact</strong><ul><li><a href="mailto:contact@mailles-co.fr">contact@mailles-co.fr</a></li><li class="plain">Livraison en France métropolitaine (Corse &amp; DOM-TOM sur demande)</li><li class="plain">Réponse sous 24h</li></ul></div>
+</div>
+<div class="bottom"><span>© 2026 Mailles &amp; Co. Tous droits réservés.</span><span>Fait main en France</span></div>
+</div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"><i class="fa-solid fa-circle-check"></i><span></span></div>
+<button class="to-top" id="toTop" type="button" aria-label="Retour en haut"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
+<script src="js/script.js"></script></body></html>
